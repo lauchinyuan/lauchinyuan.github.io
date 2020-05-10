@@ -20,30 +20,32 @@
     var CONFIG = {"hostname":"lauchinyuan.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="正在努力把键盘敲烂">
-<meta property="og:type" content="website">
-<meta property="og:title" content="程序源的破站">
-<meta property="og:url" content="http://lauchinyuan.github.io/index.html">
+  <meta name="description" content="项目需要用到esp32的定时器计算心率，现将学习内容整理如下： 最近事情较多，贴上庆应义塾大佬山本耀司的话语自勉之 12我从来不相信什么懒洋洋的自由。我向往的自由是通过勤奋和努力实现的更广阔的人生，那样的自由才是珍贵的，有价值的；我相信一万小时定律，我从来不相信天上掉馅饼的灵感和坐等的成就。做一个自由又自律的人，靠势必实现的决心认真地活着。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="esp32定时器学习">
+<meta property="og:url" content="http://lauchinyuan.github.io/2020/05/10/esp32%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="程序源的破站">
-<meta property="og:description" content="正在努力把键盘敲烂">
+<meta property="og:description" content="项目需要用到esp32的定时器计算心率，现将学习内容整理如下： 最近事情较多，贴上庆应义塾大佬山本耀司的话语自勉之 12我从来不相信什么懒洋洋的自由。我向往的自由是通过勤奋和努力实现的更广阔的人生，那样的自由才是珍贵的，有价值的；我相信一万小时定律，我从来不相信天上掉馅饼的灵感和坐等的成就。做一个自由又自律的人，靠势必实现的决心认真地活着。">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-05-10T02:12:02.000Z">
+<meta property="article:modified_time" content="2020-05-10T02:31:48.652Z">
 <meta property="article:author" content="Lau Chinyuan">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://lauchinyuan.github.io/">
+<link rel="canonical" href="http://lauchinyuan.github.io/2020/05/10/esp32%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>程序源的破站</title>
+  <title>esp32定时器学习 | 程序源的破站</title>
   
 
 
@@ -142,9 +144,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
@@ -160,10 +163,9 @@
       <meta itemprop="name" content="程序源的破站">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/10/esp32%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">esp32定时器学习</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          esp32定时器学习
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -177,6 +179,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -187,7 +196,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>项目需要用到esp32的定时器计算心率，现将学习内容整理如下：</p>
+        <p>项目需要用到esp32的定时器计算心率，现将学习内容整理如下：</p>
 <p>最近事情较多，贴上庆应义塾大佬山本耀司的话语自勉之</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">我从来不相信什么懒洋洋的自由。我向往的自由是通过勤奋和努力实现的更广阔的人生，那样的自由才是珍贵的，有价值的；我相信一万小时定律，我从来不相信天上掉馅饼的灵感和坐等的成就。做一个自由又自律的人，靠势必实现的决心认真地活着。</span><br><span class="line">                                                                                                                                                    ——山本耀司</span><br></pre></td></tr></table></figure>
 
@@ -232,237 +241,30 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_timer_periodic_cb</span><span class="params">(<span class="keyword">void</span> *arg)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int64_t</span> tick = esp_timer_get_time();</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"方法回调名字: %s , 距离定时器开启时间间隔 = %lld \r\n"</span>, __func__, tick);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (tick &gt; <span class="number">100000000</span>) &#123;</span><br><span class="line">		<span class="comment">//停止定时器工作，并获取是否停止成功</span></span><br><span class="line">		<span class="keyword">esp_err_t</span> err = esp_timer_stop(test_p_handle);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"要停止的定时器名字：%s , 是否停止成功：%s"</span>, test_periodic_arg.name,</span><br><span class="line">				err == ESP_OK ? <span class="string">"ok!\r\n"</span> : <span class="string">"failed!\r\n"</span>);</span><br><span class="line">		err = esp_timer_delete(test_p_handle);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"要删除的定时器名字：%s , 是否停止成功：%s"</span>, test_periodic_arg.name,</span><br><span class="line">				err == ESP_OK ? <span class="string">"ok!\r\n"</span> : <span class="string">"failed!\r\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//低电平</span></span><br><span class="line">	gpio_set_level(<span class="number">16</span>, <span class="number">0</span>);</span><br><span class="line">	<span class="comment">//延迟</span></span><br><span class="line">	vTaskDelay(<span class="number">1000</span> / portTICK_PERIOD_MS);</span><br><span class="line">	<span class="comment">//高电平</span></span><br><span class="line">	gpio_set_level(<span class="number">16</span>, <span class="number">1</span>);</span><br><span class="line">	<span class="comment">//延迟</span></span><br><span class="line">	vTaskDelay(<span class="number">1000</span> / portTICK_PERIOD_MS);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_timer_once_cb</span><span class="params">(<span class="keyword">void</span> *arg)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int64_t</span> tick = esp_timer_get_time();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"方法回调名字: %s , 距离定时器开启时间间隔 = %lld \r\n"</span>, __func__, tick);</span><br><span class="line">	<span class="keyword">esp_err_t</span> err = esp_timer_delete(test_o_handle);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"要删除的定时器名字：%s , 是否停止成功：%s"</span>, test_periodic_arg.name,</span><br><span class="line">			err == ESP_OK ? <span class="string">"ok!\r\n"</span> : <span class="string">"failed!\r\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://lauchinyuan.github.io/2020/05/06/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Lau Chinyuan">
-      <meta itemprop="description" content="正在努力把键盘敲烂">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="程序源的破站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/06/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/" class="post-title-link" itemprop="url">项目进度</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-05-06 22:55:13" itemprop="dateCreated datePublished" datetime="2020-05-06T22:55:13+08:00">2020-05-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-05-08 23:39:43" itemprop="dateModified" datetime="2020-05-08T23:39:43+08:00">2020-05-08</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>项目进度及计划归结为下</p>
-<ul>
-<li>硬件方面：<ul>
-<li><input checked="" disabled="" type="checkbox"> 搭建可以采集实验者耳道心跳声的有线原始系统，为验证准备数据集</li>
-<li><input checked="" disabled="" type="checkbox"> 将有线系统升级为采用BLE（蓝牙低功耗）方式的无线系统</li>
-<li><input checked="" disabled="" type="checkbox"> 设计初代耳机外壳3D模型，使得可以在耳道处同时设置麦克风和扬声器</li>
-<li><input disabled="" type="checkbox"> 使用3D打印机打印初代外壳模型（受疫情影响暂缓）</li>
-<li><input disabled="" type="checkbox"> 剔除不必要的电路系统，设计体积更小的PCB电路系统及相配套的耳机外壳</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>实验验证：<ul>
-<li><input checked="" disabled="" type="checkbox"> 利用原始系统采集100位受试者的耳道心跳声数据</li>
-<li><input disabled="" type="checkbox"> 考虑各种特殊场景，再次进行实验（受疫情影响暂缓）</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>认证算法方面：<ul>
-<li><input checked="" disabled="" type="checkbox"> 对原始数据使用基于CNN的分类算法初步验证”耳道心跳声认证技术”是否可行</li>
-<li><input checked="" disabled="" type="checkbox"> 对于已有数据进行了测试，对于50个人的分类总体召回率达到96%，但是出现少部分用户难以区分的情况。</li>
-<li><input checked="" disabled="" type="checkbox"> 设计检测所采集的信号是否合格的算法</li>
-<li><input checked="" disabled="" type="checkbox"> 是否能缩短用于识别的信号片段的长度</li>
-<li><input disabled="" type="checkbox"> 解决少部分用户无法区分的问题（考虑从预处理，特征提取等部分进行解决，同时在下次实验时修改采样率）</li>
-<li><input disabled="" type="checkbox"> 获得新的数据并持续优化算法</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>移动终端软件方面</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 将认证算法移植到安卓手机端</li>
-<li><input checked="" disabled="" type="checkbox"> 使用移动端结合蓝牙无线系统采集心跳声数据</li>
-<li><input checked="" disabled="" type="checkbox"> 初代移动端软件功能界面</li>
-<li><input checked="" disabled="" type="checkbox"> 实现移动端认证效果</li>
-<li><input checked="" disabled="" type="checkbox"> 实现移动端心率检测</li>
-<li><input disabled="" type="checkbox"> 完善移动端界面设计</li>
-<li><input disabled="" type="checkbox"> 其他平台移动端开发</li>
-</ul>
-</li>
-<li><p>专利申请方面</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 专利初稿</li>
-<li><input checked="" disabled="" type="checkbox"> 提交专利申请</li>
-<li><input disabled="" type="checkbox"> 拿到实审通知书</li>
-</ul>
-</li>
-</ul>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/06/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/" rel="prev" title="项目进度">
+      <i class="fa fa-chevron-left"></i> 项目进度
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://lauchinyuan.github.io/2020/05/03/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95-MarkDown/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Lau Chinyuan">
-      <meta itemprop="description" content="正在努力把键盘敲烂">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="程序源的破站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/03/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95-MarkDown/" class="post-title-link" itemprop="url">博客使用测试</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2020-05-03 23:11:24 / 修改時間：23:33:43" itemprop="dateCreated datePublished" datetime="2020-05-03T23:11:24+08:00">2020-05-03</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Hexo博客使用总结"><a href="#Hexo博客使用总结" class="headerlink" title="Hexo博客使用总结"></a>Hexo博客使用总结</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>将常用配置博客命令记录如下,以便日后操作</p>
-<p>首先需要下面准备工作</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 创建github个人仓库</li>
-<li><input checked="" disabled="" type="checkbox"> git本地配置</li>
-<li><input checked="" disabled="" type="checkbox"> node.js安装</li>
-<li><input checked="" disabled="" type="checkbox"> hexo安装</li>
-</ul>
-<p>在博客根目录git bash</p>
-<ol>
-<li>链接git</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"lauchinyuan"</span></span><br><span class="line">git config --global user.email <span class="string">"*******@gmail.com"</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>生成并查看SSH密钥</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"*******@gmail.com"</span></span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>在github中设置SSH，将上方得到的SSH key复制到框中</li>
-<li>查看配置状态</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>修改blog配置文件<code>_config.yml</code>,在最后配置为</li>
-</ol>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">https://github.com/lauchinyuan/lauchinyuan.github.io</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-
-<ol start="6">
-<li>安装扩展</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-deployer-git</span><br></pre></td></tr></table></figure>
-
-<ol start="7">
-<li>创建新MarkDown文件</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">"article title"</span></span><br></pre></td></tr></table></figure>
-
-<ol start="8">
-<li>生成、测试、上传</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -515,6 +317,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">1.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#官方提供的API接口说明"><span class="nav-number">1.0.1.</span> <span class="nav-text">官方提供的API接口说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前期步骤"><span class="nav-number">1.0.2.</span> <span class="nav-text">前期步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#废话不说，上代码！"><span class="nav-number">2.</span> <span class="nav-text">废话不说，上代码！</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2个定时器的句柄和2和定时器结构体："><span class="nav-number">2.0.1.</span> <span class="nav-text">定义2个定时器的句柄和2和定时器结构体：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2个定时器的回调函数，其中周期性回调的函数执行LED闪烁"><span class="nav-number">2.0.2.</span> <span class="nav-text">定义2个定时器的回调函数，其中周期性回调的函数执行LED闪烁</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
