@@ -179,7 +179,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-05-15 18:41:27" itemprop="dateModified" datetime="2020-05-15T18:41:27+08:00">2020-05-15</time>
+                <time title="修改時間：2020-06-06 18:37:28" itemprop="dateModified" datetime="2020-06-06T18:37:28+08:00">2020-06-06</time>
               </span>
 
           
@@ -206,27 +206,14 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*初始化设置，此函数只运行一次*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">pinMode</span>(<span class="number">13</span>, <span class="literal">OUTPUT</span>);  <span class="comment">/*设置引脚模式*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*此函数循环运行*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(<span class="number">13</span>, <span class="literal">HIGH</span>);  <span class="comment">/*设置数字输出*/</span></span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">1000</span>);  <span class="comment">/*毫秒级延时*/</span></span><br><span class="line">    <span class="built_in">digitalWrite</span>(<span class="number">13</span>, <span class="literal">LOW</span>);</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>不得不说这个比之前用的stm32单片机开发简单多了，许多内部实现原理都无需深究，非常适合一般项目应用。</p>
-<ol start="2">
-<li><h4 id="IO端口数字输入"><a href="#IO端口数字输入" class="headerlink" title="IO端口数字输入"></a>IO端口数字输入</h4></li>
-</ol>
-<p>总的来说和上面的差不多，只不过将<code>pinMode()</code>函数的第二个参数改为<code>INPUT</code></p>
-<p>同时，使用<code>digitalRead()</code>函数代替<code>digitalWrite()</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*初始化设置，此函数只运行一次*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">pinMode</span>(<span class="number">13</span>, <span class="literal">INPUT</span>);  <span class="comment">/*设置引脚模式*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*此函数循环运行*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">digitalRead</span>(<span class="number">13</span>);  <span class="comment">/*设置数字输入*/</span></span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">1000</span>);  <span class="comment">/*毫秒级延时*/</span></span><br><span class="line">    <span class="built_in">digitalRead</span>(<span class="number">13</span>);</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><h4 id="串口配置"><a href="#串口配置" class="headerlink" title="串口配置"></a>串口配置</h4></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">steup</span><span class="params">()</span></span>&#123;    </span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">115200</span>); <span class="comment">/*设置串口波特率*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Serial.println('Hello wrold'); /*串口打印（自动换行）*/</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li><h4 id="计算机通过串口发送数据"><a href="#计算机通过串口发送数据" class="headerlink" title="计算机通过串口发送数据"></a>计算机通过串口发送数据</h4><p>使用计算机向串口发送数据时，数据会先缓存至”串口接收缓存”中，可以通过<code>Serial.available()</code>检查接收缓存是否为空，为空时返回<code>0</code>，不为空时返回缓存字节数,如下程序段可以返回串口接收的数据</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">Serial</span>.<span class="built_in">available</span>()&gt;<span class="number">0</span>)&#123;  <span class="comment">/*先判断是否有数据在数据缓存区*/</span></span><br><span class="line">    <span class="keyword">char</span> serialData = <span class="built_in">Serial</span>.<span class="built_in">read</span>();  <span class="comment">/*接受到的数据为字符型数据*/</span></span><br><span class="line">    <span class="keyword">int</span> serSData = <span class="built_in">Serial</span>.<span class="built_in">parseInt</span>(); <span class="comment">/*分析串口接受到的整数信息并赋值给serData*/</span></span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">println</span>(serialData);</span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">println</span>(serData);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><h4 id="输入上拉模式"><a href="#输入上拉模式" class="headerlink" title="输入上拉模式"></a>输入上拉模式</h4></li>
-</ol>
-<p>Arduino可以使用<code>pinMode(pin, INPUT_PULLUP)</code>配置为输入上拉模式，该模式下，在无外部电路影响的情况下，引脚电位被拉高</p>
-<p>操作方法：在主程序<code>setup()</code>函数中写入<code>pinMode(pin, INPUT_PULLUP)</code>即可</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/12/Arduino%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -268,10 +255,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2020-05-10 10:12:02 / 修改時間：16:31:37" itemprop="dateCreated datePublished" datetime="2020-05-10T10:12:02+08:00">2020-05-10</time>
+              <time title="創建時間：2020-05-10 10:12:02" itemprop="dateCreated datePublished" datetime="2020-05-10T10:12:02+08:00">2020-05-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-06-06 18:42:49" itemprop="dateModified" datetime="2020-06-06T18:42:49+08:00">2020-06-06</time>
+              </span>
 
           
 
@@ -302,30 +295,17 @@
 </li>
 </ul>
 </li>
-<li><p>对于要暂停和删除定时器，官方提供了下面2个方法：</p>
-<ul>
-<li><p>暂停定时器：<code>esp_timer_stop()</code>：停止一个定时器操作，不管是执行单次的还是重复性执行的！形参是定时器的句柄！</p>
-</li>
-<li><p>删除定时器：<code>esp_timer_delete()</code>：删除一个定时器，记得必须要先暂停定时器哦！形参是定时器的句柄！</p>
-</li>
-</ul>
-</li>
 </ol>
 </li>
 </ol>
-<h2 id="废话不说，上代码！"><a href="#废话不说，上代码！" class="headerlink" title="废话不说，上代码！"></a>废话不说，上代码！</h2><ol>
-<li><h4 id="定义2个定时器的句柄和2和定时器结构体："><a href="#定义2个定时器的句柄和2和定时器结构体：" class="headerlink" title="定义2个定时器的句柄和2和定时器结构体："></a>定义2个定时器的句柄和2和定时器结构体：</h4></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/定义<span class="number">2</span>个定时器句柄</span><br><span class="line"><span class="keyword">esp_timer_handle_t</span> test_p_handle = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">esp_timer_handle_t</span> test_o_handle = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义一个单次运行的定时器结构体</span></span><br><span class="line"><span class="keyword">esp_timer_create_args_t</span> test_once_arg = &#123; .callback = &amp;test_timer_once_cb, <span class="comment">//设置回调函数</span></span><br><span class="line">		.arg = <span class="literal">NULL</span>, <span class="comment">//不携带参数</span></span><br><span class="line">		.name = <span class="string">"TestOnceTimer"</span> <span class="comment">//定时器名字</span></span><br><span class="line">		&#125;;</span><br><span class="line"><span class="comment">//定义一个周期重复运行的定时器结构体</span></span><br><span class="line"><span class="keyword">esp_timer_create_args_t</span> test_periodic_arg = &#123; .callback =</span><br><span class="line">		&amp;test_timer_periodic_cb, <span class="comment">//设置回调函数</span></span><br><span class="line">		.arg = <span class="literal">NULL</span>, <span class="comment">//不携带参数</span></span><br><span class="line">		.name = <span class="string">"TestPeriodicTimer"</span> <span class="comment">//定时器名字</span></span><br><span class="line"></span><br><span class="line">		&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="2">
-<li><h4 id="定义2个定时器的回调函数，其中周期性回调的函数执行LED闪烁"><a href="#定义2个定时器的回调函数，其中周期性回调的函数执行LED闪烁" class="headerlink" title="定义2个定时器的回调函数，其中周期性回调的函数执行LED闪烁"></a>定义2个定时器的回调函数，其中周期性回调的函数执行LED闪烁</h4></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_timer_periodic_cb</span><span class="params">(<span class="keyword">void</span> *arg)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int64_t</span> tick = esp_timer_get_time();</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"方法回调名字: %s , 距离定时器开启时间间隔 = %lld \r\n"</span>, __func__, tick);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (tick &gt; <span class="number">100000000</span>) &#123;</span><br><span class="line">		<span class="comment">//停止定时器工作，并获取是否停止成功</span></span><br><span class="line">		<span class="keyword">esp_err_t</span> err = esp_timer_stop(test_p_handle);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"要停止的定时器名字：%s , 是否停止成功：%s"</span>, test_periodic_arg.name,</span><br><span class="line">				err == ESP_OK ? <span class="string">"ok!\r\n"</span> : <span class="string">"failed!\r\n"</span>);</span><br><span class="line">		err = esp_timer_delete(test_p_handle);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"要删除的定时器名字：%s , 是否停止成功：%s"</span>, test_periodic_arg.name,</span><br><span class="line">				err == ESP_OK ? <span class="string">"ok!\r\n"</span> : <span class="string">"failed!\r\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//低电平</span></span><br><span class="line">	gpio_set_level(<span class="number">16</span>, <span class="number">0</span>);</span><br><span class="line">	<span class="comment">//延迟</span></span><br><span class="line">	vTaskDelay(<span class="number">1000</span> / portTICK_PERIOD_MS);</span><br><span class="line">	<span class="comment">//高电平</span></span><br><span class="line">	gpio_set_level(<span class="number">16</span>, <span class="number">1</span>);</span><br><span class="line">	<span class="comment">//延迟</span></span><br><span class="line">	vTaskDelay(<span class="number">1000</span> / portTICK_PERIOD_MS);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_timer_once_cb</span><span class="params">(<span class="keyword">void</span> *arg)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int64_t</span> tick = esp_timer_get_time();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"方法回调名字: %s , 距离定时器开启时间间隔 = %lld \r\n"</span>, __func__, tick);</span><br><span class="line">	<span class="keyword">esp_err_t</span> err = esp_timer_delete(test_o_handle);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"要删除的定时器名字：%s , 是否停止成功：%s"</span>, test_periodic_arg.name,</span><br><span class="line">			err == ESP_OK ? <span class="string">"ok!\r\n"</span> : <span class="string">"failed!\r\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/10/esp32%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -375,7 +355,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-05-08 23:39:43" itemprop="dateModified" datetime="2020-05-08T23:39:43+08:00">2020-05-08</time>
+                <time title="修改時間：2020-06-06 18:41:35" itemprop="dateModified" datetime="2020-06-06T18:41:35+08:00">2020-06-06</time>
               </span>
 
           
@@ -400,45 +380,14 @@
 </ul>
 </li>
 </ul>
-<ul>
-<li>实验验证：<ul>
-<li><input checked="" disabled="" type="checkbox"> 利用原始系统采集100位受试者的耳道心跳声数据</li>
-<li><input disabled="" type="checkbox"> 考虑各种特殊场景，再次进行实验（受疫情影响暂缓）</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>认证算法方面：<ul>
-<li><input checked="" disabled="" type="checkbox"> 对原始数据使用基于CNN的分类算法初步验证”耳道心跳声认证技术”是否可行</li>
-<li><input checked="" disabled="" type="checkbox"> 对于已有数据进行了测试，对于50个人的分类总体召回率达到96%，但是出现少部分用户难以区分的情况。</li>
-<li><input checked="" disabled="" type="checkbox"> 设计检测所采集的信号是否合格的算法</li>
-<li><input checked="" disabled="" type="checkbox"> 是否能缩短用于识别的信号片段的长度</li>
-<li><input disabled="" type="checkbox"> 解决少部分用户无法区分的问题（考虑从预处理，特征提取等部分进行解决，同时在下次实验时修改采样率）</li>
-<li><input disabled="" type="checkbox"> 获得新的数据并持续优化算法</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>移动终端软件方面</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 将认证算法移植到安卓手机端</li>
-<li><input checked="" disabled="" type="checkbox"> 使用移动端结合蓝牙无线系统采集心跳声数据</li>
-<li><input checked="" disabled="" type="checkbox"> 初代移动端软件功能界面</li>
-<li><input checked="" disabled="" type="checkbox"> 实现移动端认证效果</li>
-<li><input checked="" disabled="" type="checkbox"> 实现移动端心率检测</li>
-<li><input disabled="" type="checkbox"> 完善移动端界面设计</li>
-<li><input disabled="" type="checkbox"> 其他平台移动端开发</li>
-</ul>
-</li>
-<li><p>专利申请方面</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 专利初稿</li>
-<li><input checked="" disabled="" type="checkbox"> 提交专利申请</li>
-<li><input disabled="" type="checkbox"> 拿到实审通知书</li>
-</ul>
-</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/06/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
