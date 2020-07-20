@@ -28,7 +28,7 @@
 <meta property="og:description" content="学习动机最近对esp32接触一段时间后发现esp32兼容Arduino的开发模式，鉴于Arduino容易上手，对于一般的项目来说够用，且在国际间比较流行通用，所以决定入门Arduino 学习前的准备  Arduino IDE下载安装  开发板元器件等  安装esp32开发板资料  C&#x2F;C++语言基础  常用基本语句 IO端口高低电平数字输出  123456789101112&#x2F;*初始化设置，此函数只">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-05-12T10:43:34.000Z">
-<meta property="article:modified_time" content="2020-06-06T10:37:28.441Z">
+<meta property="article:modified_time" content="2020-07-20T07:09:47.029Z">
 <meta property="article:author" content="Lau Chinyuan">
 <meta name="twitter:card" content="summary">
 
@@ -181,7 +181,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-06-06 18:37:28" itemprop="dateModified" datetime="2020-06-06T18:37:28+08:00">2020-06-06</time>
+                <time title="修改時間：2020-07-20 15:09:47" itemprop="dateModified" datetime="2020-07-20T15:09:47+08:00">2020-07-20</time>
               </span>
 
           
@@ -245,6 +245,7 @@
 <p>具体到代码</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;Wire.h&gt;  /*包含Wire库*/</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*以下代码仅作为学习记录展示，不具有可用性*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">Wire</span>.<span class="built_in">begin</span>(address)  <span class="comment">/*IIC初始化，无输入时默认以Master形式加入通讯*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">Wire</span>.<span class="built_in">beginTransmission</span>(address);  <span class="comment">/*开启IIC通讯,address参数为器件的七位地址*/</span></span><br><span class="line">    <span class="built_in">Wire</span>.<span class="built_in">write</span>(value);  <span class="comment">/*主机发送数据给从机*/</span></span><br><span class="line">    <span class="built_in">Wire</span>.<span class="built_in">endTransmission</span>();  <span class="comment">/*结束传输并返回数据*/</span></span><br><span class="line">     </span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    主设备请求从设备一个字节，</span></span><br><span class="line"><span class="comment">    这个字节可以被主设备用read()或available()接受,</span></span><br><span class="line"><span class="comment">    addtess ： 7位的器件地址</span></span><br><span class="line"><span class="comment">    quantity ： 请求得到的数量</span></span><br><span class="line"><span class="comment">    stop ：</span></span><br><span class="line"><span class="comment">    布尔形，‘1’ 则在请求结束后发送一个停止命令，并释放总线。</span></span><br><span class="line"><span class="comment">    ‘0’则继续发送请求保持连接*/</span></span><br><span class="line">    <span class="built_in">Wire</span>.<span class="built_in">requestFrom</span>(address, quantity, True);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>以上即是目前项目中所要用到的关于Arduino相关知识。</p>
 
     </div>
 
