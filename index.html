@@ -148,6 +148,72 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://lauchinyuan.github.io/2020/07/20/Arduino%E6%8A%A5%E9%94%99%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lau Chinyuan">
+      <meta itemprop="description" content="正在努力把键盘敲烂">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程序源的破站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/20/Arduino%E6%8A%A5%E9%94%99%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Arduino报错及其解决方法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2020-07-20 15:38:50 / 修改時間：15:53:48" itemprop="dateCreated datePublished" datetime="2020-07-20T15:38:50+08:00">2020-07-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="缘由："><a href="#缘由：" class="headerlink" title="缘由："></a>缘由：</h2><p>今天使用新的esp32开发板进行项目开发，在上手时发现无法通过Arduino IDE进行程序烧录，这在其他开发板中并未见过，鉴于往后开发过程中还会遇到许多报错信息，将其记录在此有助于后面的查阅及debug工作，故新开此文。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/20/Arduino%E6%8A%A5%E9%94%99%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="http://lauchinyuan.github.io/2020/05/12/Arduino%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -179,7 +245,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-07-20 15:09:47" itemprop="dateModified" datetime="2020-07-20T15:09:47+08:00">2020-07-20</time>
+                <time title="修改時間：2020-07-20 15:48:45" itemprop="dateModified" datetime="2020-07-20T15:48:45+08:00">2020-07-20</time>
               </span>
 
           
@@ -200,12 +266,6 @@
 <li><input checked="" disabled="" type="checkbox"> 安装esp32开发板资料</li>
 <li><input checked="" disabled="" type="checkbox"> C/C++语言基础</li>
 </ul>
-<h3 id="常用基本语句"><a href="#常用基本语句" class="headerlink" title="常用基本语句"></a>常用基本语句</h3><ol>
-<li><h4 id="IO端口高低电平数字输出"><a href="#IO端口高低电平数字输出" class="headerlink" title="IO端口高低电平数字输出"></a>IO端口高低电平数字输出</h4></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*初始化设置，此函数只运行一次*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">pinMode</span>(<span class="number">13</span>, <span class="literal">OUTPUT</span>);  <span class="comment">/*设置引脚模式*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*此函数循环运行*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(<span class="number">13</span>, <span class="literal">HIGH</span>);  <span class="comment">/*设置数字输出*/</span></span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">1000</span>);  <span class="comment">/*毫秒级延时*/</span></span><br><span class="line">    <span class="built_in">digitalWrite</span>(<span class="number">13</span>, <span class="literal">LOW</span>);</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>不得不说这个比之前用的stm32单片机开发简单多了，许多内部实现原理都无需深究，非常适合一般项目应用。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/05/12/Arduino%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/#more" rel="contents">
@@ -571,7 +631,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
